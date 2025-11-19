@@ -10,17 +10,18 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, rgba(12,14,18,1) 0%, rgba(12,14,18,0.96) 30%, rgba(12,14,18,1) 100%)' }}>
       {/* Navbar */}
-      <header className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur bg-slate-950/40 border-b border-white/10">
-        <a href="#" className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-amber-400 shadow-lg" />
-          <span className="text-white font-semibold tracking-wide">Soléa</span>
+      <header className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 py-3 backdrop-blur bg-black/30 border-b border-white/10">
+        <a href="#hero" className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-xl shadow-lg" style={{ background: 'linear-gradient(135deg, var(--solea-terracotta), var(--solea-blush))' }} />
+          <span className="text-white font-semibold tracking-wide font-serif-clean">Soléa</span>
         </a>
-        <nav className="hidden sm:flex items-center gap-6 text-white/80">
+        <nav className="hidden sm:flex items-center gap-6 text-white/85">
           <a href="#about" className="hover:text-white">About</a>
           <a href="#method" className="hover:text-white">Method</a>
           <a href="#courses" className="hover:text-white">Courses</a>
+          <a href="#programs" className="hover:text-white">Programs</a>
           <a href="#blog" className="hover:text-white">Blog</a>
           <a href="#contact" className="hover:text-white">Contact</a>
         </nav>

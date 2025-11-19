@@ -44,36 +44,48 @@ const stages = [
 
 export default function Courses() {
   return (
-    <section id="courses" className="py-20 bg-slate-950">
+    <section id="courses" className="py-20 relative">
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <style>{`
+          @keyframes driftX { 0% { transform: translateX(0) } 50% { transform: translateX(16px) } 100% { transform: translateX(0) } }
+        `}</style>
+        <div className="absolute -top-12 left-1/4 h-72 w-72 rounded-full watercolor-blob" style={{ backgroundColor: 'var(--solea-sage)', opacity: 0.22, animation: 'driftX 11s ease-in-out infinite' }} />
+        <div className="absolute -bottom-8 right-1/4 h-72 w-72 rounded-full watercolor-blob" style={{ backgroundColor: 'var(--solea-blush)', opacity: 0.22, animation: 'driftX 9s ease-in-out infinite' }} />
+      </div>
+
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">The Soléa Pathway — Inspired by Cambridge, Guided by Heart</h2>
-          <p className="mt-3 text-white/80">Our learning path follows 3 poetic stages — similar to Cambridge progression, yet uniquely emotional.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-serif-clean">The Soléa Pathway — Inspired by Cambridge, Guided by Heart</h2>
+          <p className="mt-3 text-white/85 font-serif-clean">Our learning path follows 3 poetic stages — similar to Cambridge progression, yet uniquely emotional.</p>
         </div>
 
         <div className="mt-10 grid md:grid-cols-3 gap-6">
           {stages.map((s) => (
-            <div key={s.title} className="rounded-2xl p-6 bg-white/5 border border-white/10">
+            <div key={s.title} className="rounded-2xl p-6 border backdrop-blur paper-texture" style={{ backgroundColor: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.10)' }}>
               <div className="flex items-center gap-3">
-                <s.icon className="w-6 h-6 text-pink-300" />
-                <h3 className="text-white font-semibold">{s.title}</h3>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--solea-beige-20)' }}>
+                  <s.icon className="w-5 h-5" style={{ color: 'var(--solea-terracotta)' }} />
+                </div>
+                <h3 className="text-white font-semibold font-serif-clean">{s.title}</h3>
               </div>
-              <p className="mt-2 text-white/80 text-sm">Focus: {s.focus}</p>
-              <p className="mt-2 text-white/75 text-sm leading-relaxed">{s.desc}</p>
-              <ul className="mt-3 text-white/80 text-sm space-y-1 list-disc list-inside">
+              <p className="mt-2 text-white/85 text-sm font-serif-clean">Focus: {s.focus}</p>
+              <p className="mt-2 text-white/80 text-sm leading-relaxed font-serif-clean">{s.desc}</p>
+              <ul className="mt-3 text-white/85 text-sm space-y-1 list-disc list-inside font-serif-clean">
                 {s.skills.map((k) => <li key={k}>{k}</li>)}
               </ul>
-              <p className="mt-3 text-white font-medium">✨ Goal: “{s.goal}”</p>
+              <p className="mt-3 text-white font-medium font-hand text-lg">✨ Goal: “{s.goal}”</p>
             </div>
           ))}
         </div>
 
         <div className="mt-10 grid md:grid-cols-3 gap-4">
-          <div className="rounded-xl p-4 bg-white/5 border border-white/10 flex items-center gap-3"><Theater className="w-5 h-5 text-indigo-300"/>Weekend Masterclasses: Storytelling, Theatre, Voice on Stage</div>
-          <div className="rounded-xl p-4 bg-white/5 border border-white/10 flex items-center gap-3"><User className="w-5 h-5 text-indigo-300"/>Private Coaching: For sensitive or bilingual children</div>
-          <div className="rounded-xl p-4 bg-white/5 border border-white/10 flex items-center gap-3"><Rainbow className="w-5 h-5 text-indigo-300"/>Parent Workshops: “How to support your child’s voice at home”</div>
+          <div className="rounded-xl p-4 border backdrop-blur flex items-center gap-3 paper-texture" style={{ backgroundColor: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.10)' }}><Theater className="w-5 h-5" style={{ color: 'var(--solea-sage)' }}/>Weekend Masterclasses: Storytelling, Theatre, Voice on Stage</div>
+          <div className="rounded-xl p-4 border backdrop-blur flex items-center gap-3 paper-texture" style={{ backgroundColor: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.10)' }}><User className="w-5 h-5" style={{ color: 'var(--solea-terracotta)' }}/>Private Coaching: For sensitive or bilingual children</div>
+          <div className="rounded-xl p-4 border backdrop-blur flex items-center gap-3 paper-texture" style={{ backgroundColor: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.10)' }}><Rainbow className="w-5 h-5" style={{ color: 'var(--solea-blush)' }}/>Parent Workshops: “How to support your child’s voice at home”</div>
         </div>
       </div>
+
+      <div className="mt-12 w-full h-[10px] wave-line" />
     </section>
   )
 }
