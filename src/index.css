@@ -2,45 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Brand fonts */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
 @layer base {
   :root {
+    /* Fonts */
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-geist: 'Geist', system-ui, sans-serif;
-    --font-geist-mono: 'Geist Mono', monospace;
-    --font-mona: 'Mona Sans', system-ui, sans-serif;
-    --font-ibm-plex: 'IBM Plex Sans', system-ui, sans-serif;
-    --font-manrope: 'Manrope', system-ui, sans-serif;
+    --font-serif-clean: 'Cormorant Garamond', ui-serif, Georgia, serif;
+    --font-hand: 'Caveat', 'Comic Sans MS', cursive;
+
+    /* Soléa brand palette */
+    --solea-terracotta: #D27A5B; /* soft terracotta */
+    --solea-sage: #7DAA95;      /* sage green */
+    --solea-beige: #E9D7BF;     /* golden beige */
+    --solea-blush: #F2C3CC;     /* blush pink */
+
+    /* Semantic tints */
+    --solea-terracotta-20: rgba(210, 122, 91, 0.2);
+    --solea-sage-20: rgba(125, 170, 149, 0.2);
+    --solea-beige-20: rgba(233, 215, 191, 0.2);
+    --solea-blush-20: rgba(242, 195, 204, 0.25);
   }
 
-  html {
-    font-family: var(--font-sans);
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  body {
-    @apply antialiased;
-  }
+  html { font-family: var(--font-sans); font-feature-settings: "rlig" 1, "calt" 1; }
+  body { @apply antialiased; }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
+/* Brand utility classes */
 @layer utilities {
-  .animate-in {
-    animation-name: animateIn;
-    animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
+  .font-serif-clean { font-family: var(--font-serif-clean); }
+  .font-hand { font-family: var(--font-hand); }
+
+  .bg-terracotta { background-color: var(--solea-terracotta); }
+  .text-terracotta { color: var(--solea-terracotta); }
+  .bg-sage { background-color: var(--solea-sage); }
+  .text-sage { color: var(--solea-sage); }
+  .bg-beige { background-color: var(--solea-beige); }
+  .text-beige { color: var(--solea-beige); }
+  .bg-blush { background-color: var(--solea-blush); }
+  .text-blush { color: var(--solea-blush); }
+
+  .paper-texture {
+    background-image: radial-gradient(var(--solea-beige-20) 1px, transparent 1px);
+    background-size: 6px 6px;
+  }
+  .watercolor-blob { filter: blur(32px); opacity: 0.85; }
+  .wave-line {
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.12) 0,
+      rgba(255,255,255,0.12) 2px,
+      transparent 3px,
+      transparent 8px
+    );
   }
 
-  .animate-out {
-    animation-name: animateOut;
-    animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
-  }
+  .animate-in { animation-name: animateIn; animation-duration: 350ms; }
+  .animate-out { animation-name: animateOut; animation-duration: 350ms; }
 }
