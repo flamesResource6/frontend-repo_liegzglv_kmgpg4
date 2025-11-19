@@ -1,14 +1,27 @@
-import Spline from '@splinetool/react-spline'
-
 function Hero() {
   return (
     <section className="relative min-h-[90vh] w-full overflow-hidden flex items-center justify-center">
       {/* Background gradient glow */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_600px_at_50%_-10%,rgba(124,58,237,0.25),transparent_60%)]"></div>
 
-      {/* Spline 3D scene */}
-      <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/4cHQr84zOGAHOehh/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+      {/* Soft, kid-friendly animated shapes (replaces complex 3D scene) */}
+      <div className="absolute inset-0 -z-10">
+        <style>{`
+          @keyframes floatSlow { 0% { transform: translateY(0px) } 50% { transform: translateY(-18px) } 100% { transform: translateY(0px) } }
+          @keyframes drift { 0% { transform: translateX(0px) rotate(0deg) } 50% { transform: translateX(15px) rotate(4deg) } 100% { transform: translateX(0px) rotate(0deg) } }
+        `}</style>
+        {/* Big pastel blobs */}
+        <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-pink-300/30 blur-3xl" style={{ animation: 'floatSlow 8s ease-in-out infinite' }} />
+        <div className="absolute top-10 -right-16 h-64 w-64 rounded-full bg-amber-200/30 blur-3xl" style={{ animation: 'floatSlow 9s ease-in-out infinite' }} />
+        <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-sky-300/25 blur-3xl" style={{ animation: 'floatSlow 10s ease-in-out infinite' }} />
+
+        {/* Friendly floating shapes (stars/hearts/notes styled shapes) */}
+        <div className="absolute inset-0 pointer-events-none">
+          <span className="absolute left-10 top-20 text-3xl" style={{ filter: 'drop-shadow(0 6px 20px rgba(99,102,241,0.4))', animation: 'drift 6s ease-in-out infinite' }}>⭐</span>
+          <span className="absolute right-12 top-32 text-3xl" style={{ filter: 'drop-shadow(0 6px 20px rgba(236,72,153,0.4))', animation: 'drift 7s ease-in-out infinite' }}>💜</span>
+          <span className="absolute left-1/2 bottom-24 -translate-x-1/2 text-3xl" style={{ filter: 'drop-shadow(0 6px 20px rgba(14,165,233,0.35))', animation: 'drift 8s ease-in-out infinite' }}>🎈</span>
+          <span className="absolute left-20 bottom-16 text-3xl" style={{ filter: 'drop-shadow(0 6px 20px rgba(251,191,36,0.35))', animation: 'drift 6.5s ease-in-out infinite' }}>🎵</span>
+        </div>
       </div>
 
       {/* Content overlay */}
